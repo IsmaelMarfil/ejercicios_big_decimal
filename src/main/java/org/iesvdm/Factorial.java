@@ -36,7 +36,16 @@ public class Factorial {
         this.factorial=BigInteger.valueOf(1);
         this.factorial=BigInteger.ONE;
         for (long i =2; i<= this.n; i++){
-            this.factorial = this.factorial.multiply(BigInteger.valueOf(1));
+            this.factorial = this.factorial.multiply(BigInteger.valueOf(i));
+        }
+        return this.factorial;
+    }
+    public BigInteger calcula(int n) {
+        this.factorial=new BigInteger("1");
+        this.factorial = BigInteger.valueOf(1);
+        this.factorial = BigInteger.ONE;
+        for(long i=2;i<=n;i++){
+            this.factorial=this.factorial.multiply(BigInteger.valueOf(i));
         }
         return this.factorial;
     }
