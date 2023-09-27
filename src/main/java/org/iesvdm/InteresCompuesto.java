@@ -1,6 +1,7 @@
 package org.iesvdm;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class InteresCompuesto {
 
@@ -49,7 +50,9 @@ public class InteresCompuesto {
 
     public BigDecimal calculaMontoFinal() {
         //TODO
-        return null;
+        BigDecimal cien = new BigDecimal(100.00);
+        c = p.multiply(r.divide(cien, 3, RoundingMode.HALF_UP).add(BigDecimal.ONE).pow(n));
+        return c;
     }
 
 
