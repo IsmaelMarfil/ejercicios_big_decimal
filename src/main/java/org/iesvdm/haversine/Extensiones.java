@@ -1,11 +1,12 @@
 package org.iesvdm.haversine;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.math.RoundingMode;
 
 public class Extensiones {
-    public final BigDecimal radioTierraKM= new BigDecimal(6378.0);
-    public static BigDecimal distanciaKM  (posicion posicionOrigen, posicion posicionDestino){
+    public  BigDecimal radioTierraKM= new BigDecimal(6378.0);
+    public  BigDecimal distanciaKM  (posicion posicionOrigen, posicion posicionDestino){
         BigDecimal difLatitud = (posicionOrigen.getLatitud().subtract(posicionDestino.getLatitud()));
         BigDecimal difLongitud = (posicionOrigen.getLongitud().subtract(posicionDestino.getLongitud()));
         BigDecimal difLatitudRad = enRadianes(difLatitud);
@@ -18,13 +19,16 @@ public class Extensiones {
 
         var a = primeraLinea.add(segundaLinea.multiply(terceraLinea.multiply(cuartaLinea)));
         BigDecimal unomenosa = BigDecimal.ONE.subtract(a);
-        double raiz = unomenosa.sqrt(M)
-        return null;
+        double raiz = unomenosa.sqrt(MathContext.DECIMAL128).doubleValue();
+        BigDecimal c = BigDecimal.valueOf(2).multiply(BigDecimal.valueOf(Math.atan2(a.sqrt(MathContext.DECIMAL128).doubleValue(), raiz)));
+        BigDecimal distancia = radioTierraKM.multiply(c);
+        return c;
     }
     public static BigDecimal enRadianes(BigDecimal valor){
         BigDecimal piBD = new BigDecimal(Math.PI);
         BigDecimal cientochenta = new BigDecimal(180);
         BigDecimal valorRadianes = (valor.multiply(piBD)).divide(cientochenta, RoundingMode.DOWN);
+
         return  valorRadianes;
 
     }
