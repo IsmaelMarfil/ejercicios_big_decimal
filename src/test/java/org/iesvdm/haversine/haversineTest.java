@@ -1,8 +1,10 @@
 package org.iesvdm.haversine;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 
 public class haversineTest {
@@ -15,6 +17,9 @@ public class haversineTest {
         BigDecimal latitudIgualada = new BigDecimal(41.57879);
         BigDecimal longitudIgualada = new BigDecimal(1.617221);
         posicion Igualada = new posicion(latitudIgualada, longitudIgualada);
-        BigDecimal distancia = distanciaKM(Granada, Igualada);
+        BigDecimal distancia = Extensiones.DistanciaKM(Granada, Igualada);
+        Assertions.assertEquals(6378.0, distancia);
     }
+
+
 }
