@@ -2,12 +2,13 @@ package org.iesvdm.ejercicio4;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
 public class Payment {
     private String id;
-    private Date paid;
+    private LocalDate paid;
 
     private BigDecimal total;
 
@@ -17,7 +18,7 @@ public class Payment {
 
     private  Order order;
 
-    public Payment(String id, Date paid, BigDecimal total, String details) {
+    public Payment(String id, LocalDate paid, BigDecimal total, String details) {
         this.id = id;
         this.paid = paid;
         this.total = total;
@@ -33,11 +34,11 @@ public class Payment {
         this.id = id;
     }
 
-    public Date getPaid() {
+    public LocalDate getPaid() {
         return paid;
     }
 
-    public void setPaid(Date paid) {
+    public void setPaid(LocalDate paid) {
         this.paid = paid;
     }
 

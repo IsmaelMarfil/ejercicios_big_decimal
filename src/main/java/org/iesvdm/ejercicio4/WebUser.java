@@ -5,11 +5,20 @@ public class WebUser {
     String password;
     private enum state{BANNED, LOCKED, ACTIVE, NEW};
     private Customer customer;
+    private ShoppingCart shoppingCart;
 
     public WebUser(String login_id, String password) {
         this.login_id = login_id;
         this.password = password;
         this.customer = null;
+    }
+
+    public ShoppingCart getShoppingCart() {
+        return shoppingCart;
+    }
+
+    public void setShoppingCart(ShoppingCart shoppingCart) {
+        this.shoppingCart = shoppingCart;
     }
 
     public Customer getCustomer() {

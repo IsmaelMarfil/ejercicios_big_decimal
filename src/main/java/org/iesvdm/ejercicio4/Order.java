@@ -3,6 +3,7 @@ package org.iesvdm.ejercicio4;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -10,22 +11,40 @@ import java.util.List;
 
 public class Order {
     private String number_id;
-    private Date ordered;
-    private Date shipped;
+    private LocalDate ordered;
+    private LocalDate shipped;
     private Address ship_to;
     private List<Payment> paymentList = new ArrayList<>();
+
+    public List<Payment> getPaymentList() {
+        return paymentList;
+    }
+
+    public void setPaymentList(List<Payment> paymentList) {
+        this.paymentList = paymentList;
+    }
 
     private enum status {NEW, SHIPPED,HOLD, DELIVERED,CLOSED};
     private BigDecimal total;
 
-    public Order(String number_id, Date ordered, Date shipped, Address ship_to, BigDecimal total) {
+    private List<LineItem> lineItemList;
+
+    public List<LineItem> getLineItemList() {
+        return lineItemList;
+    }
+
+    public void setLineItemList(List<LineItem> lineItemList) {
+        this.lineItemList = lineItemList;
+    }
+
+    public Order(String number_id, LocalDate ordered, LocalDate shipped, Address ship_to, BigDecimal total) {
         this.number_id = number_id;
         this.ordered = ordered;
         this.shipped = shipped;
         this.ship_to = ship_to;
         this.total = total;
         BigDecimal precio = new BigDecimal(300);
-        paymentList.add(new Payment("1 ", Date.from(Instant.now()), precio, "RTX3070"));
+
     }
 
     public String getNumber_id() {
@@ -36,19 +55,19 @@ public class Order {
         this.number_id = number_id;
     }
 
-    public Date getOrdered() {
+    public LocalDate getOrdered() {
         return ordered;
     }
 
-    public void setOrdered(Date ordered) {
+    public void setOrdered(LocalDate ordered) {
         this.ordered = ordered;
     }
 
-    public Date getShipped() {
+    public LocalDate getShipped() {
         return shipped;
     }
 
-    public void setShipped(Date shipped) {
+    public void setShipped(LocalDate shipped) {
         this.shipped = shipped;
     }
 

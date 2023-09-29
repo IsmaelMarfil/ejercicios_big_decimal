@@ -9,9 +9,9 @@ public class Account {
     private String id;
     private Address billing_Address;
     boolean isClosed;
-    private Date open;
+    private LocalDate open;
 
-    private Date closed;
+    private LocalDate closed;
 
     private ShoppingCart shoppingCart;
 
@@ -50,19 +50,19 @@ public class Account {
         isClosed = closed;
     }
 
-    public Date getOpen() {
+    public LocalDate getOpen() {
         return open;
     }
 
-    public void setOpen(Date open) {
+    public void setOpen(LocalDate open) {
         this.open = open;
     }
 
-    public Date getClosed() {
+    public LocalDate getClosed() {
         return closed;
     }
 
-    public void setClosed(Date closed) {
+    public void setClosed(LocalDate closed) {
         this.closed = closed;
     }
 
