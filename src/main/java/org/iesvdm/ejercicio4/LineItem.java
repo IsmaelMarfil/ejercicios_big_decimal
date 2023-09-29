@@ -4,6 +4,8 @@ public class LineItem {
     private int quantity;
     private Price price;
 
+    private Product product;
+
     private ShoppingCart shoppingCart;
 
     public ShoppingCart getShoppingCart() {
@@ -17,6 +19,14 @@ public class LineItem {
     public LineItem(int quantity, Price price) {
         this.quantity = quantity;
         this.price = price;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public int getQuantity() {
