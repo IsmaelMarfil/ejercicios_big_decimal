@@ -1,16 +1,22 @@
 package org.iesvdm.ejercicio4;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class Order {
-    String number_id;
-    Date ordered;
-    Date shipped;
-    Address ship_to;
+    private String number_id;
+    private Date ordered;
+    private Date shipped;
+    private Address ship_to;
+    private List<Payment> paymentList = new ArrayList<>();
 
-    enum status {NEW, SHIPPED,HOLD, DELIVERED,CLOSED};
-    BigDecimal total;
+    private enum status {NEW, SHIPPED,HOLD, DELIVERED,CLOSED};
+    private BigDecimal total;
 
     public Order(String number_id, Date ordered, Date shipped, Address ship_to, BigDecimal total) {
         this.number_id = number_id;
@@ -18,6 +24,8 @@ public class Order {
         this.shipped = shipped;
         this.ship_to = ship_to;
         this.total = total;
+        BigDecimal precio = new BigDecimal(300);
+        paymentList.add(new Payment("1 ", Date.from(Instant.now()), precio, "RTX3070"));
     }
 
     public String getNumber_id() {

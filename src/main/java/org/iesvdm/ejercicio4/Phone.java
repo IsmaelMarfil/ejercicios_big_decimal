@@ -1,8 +1,8 @@
 package org.iesvdm.ejercicio4;
 
 public class Phone {
-    String phoneCasa;
-    String phoneMovil;
+    private String phoneCasa;
+    private String phoneMovil;
 
     public Phone(String phoneCasa, String phoneMovil) {
         this.phoneCasa = phoneCasa;

@@ -1,10 +1,10 @@
 package org.iesvdm.ejercicio4;
 
 public class Address {
-    String calle;
-    int numero;
-    String ciudad;
-    String pais;
+    private String calle;
+    private int numero;
+    private String ciudad;
+    private String pais;
 
     public Address(String calle, int numero, String ciudad, String pais) {
         this.calle = calle;

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.RoundingMode;
 
 
 public class haversineTest {
@@ -18,7 +19,7 @@ public class haversineTest {
         BigDecimal longitudIgualada = new BigDecimal(1.617221);
         posicion Igualada = new posicion(latitudIgualada, longitudIgualada);
         BigDecimal distancia = Extensiones.DistanciaKM(Granada, Igualada);
-        Assertions.assertEquals(6378.0, distancia);
+        Assertions.assertEquals(664.20, distancia.setScale(2, RoundingMode.HALF_UP));
     }
 
 

@@ -13,8 +13,8 @@ public class Extensiones {
         BigDecimal difLongitudRad = enRadianes(difLongitud);
         BigDecimal dos = new BigDecimal(2);
         var primeraLinea = BigDecimal.valueOf(Math.sin(difLatitudRad.divide(BigDecimal.TWO, 12, RoundingMode.HALF_UP).pow(2).doubleValue()));
-        var segundaLinea = BigDecimal.valueOf(Math.cos(posicionOrigen.getLatitud().doubleValue()));
-        var terceraLinea = BigDecimal.valueOf(Math.cos(posicionDestino.getLatitud().doubleValue()));
+        var segundaLinea = BigDecimal.valueOf(Math.cos(enRadianes(posicionOrigen.getLatitud()).doubleValue()));
+        var terceraLinea = BigDecimal.valueOf(Math.cos(enRadianes(posicionDestino.getLatitud()).doubleValue()));
         var cuartaLinea = BigDecimal.valueOf(Math.sin(difLongitudRad.divide(BigDecimal.TWO, 12, RoundingMode.HALF_UP).pow(2).doubleValue()));
 
         var a = primeraLinea.add(segundaLinea.multiply(terceraLinea.multiply(cuartaLinea)));

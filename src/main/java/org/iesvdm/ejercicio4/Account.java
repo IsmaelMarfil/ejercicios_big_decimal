@@ -1,14 +1,22 @@
 package org.iesvdm.ejercicio4;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Account {
-    String id;
-    Address billing_Address;
+    private String id;
+    private Address billing_Address;
     boolean isClosed;
-    Date open;
+    private Date open;
 
-    Date closed;
+    private Date closed;
+
+    private ShoppingCart shoppingCart;
+
+    private List<Payment> paymentList = new ArrayList<>();
+
+    private Customer customer;
 
     public Account(String id, Address billing_Address, boolean isClosed, Date open) {
         this.id = id;
@@ -55,5 +63,21 @@ public class Account {
 
     public void setClosed(Date closed) {
         this.closed = closed;
+    }
+
+    public ShoppingCart getShoppingCart() {
+        return shoppingCart;
+    }
+
+    public void setShoppingCart(ShoppingCart shoppingCart) {
+        this.shoppingCart = shoppingCart;
+    }
+
+    public List<Payment> getPaymentList() {
+        return paymentList;
+    }
+
+    public void setPaymentList(List<Payment> paymentList) {
+        this.paymentList = paymentList;
     }
 }
