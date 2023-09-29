@@ -1,5 +1,6 @@
 package org.iesvdm.ejercicio4;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,7 +19,7 @@ public class Account {
 
     private Customer customer;
 
-    public Account(String id, Address billing_Address, boolean isClosed, Date open) {
+    public Account(String id, Address billing_Address, boolean isClosed, LocalDate open) {
         this.id = id;
         this.billing_Address = billing_Address;
         this.isClosed = isClosed;
